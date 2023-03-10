@@ -1,0 +1,60 @@
+.response_field{
+    max-width: 60em;
+    width: 40em;
+    height: auto;
+    margin: auto;
+    margin-top: 1em;
+    padding: 1em;
+    border-radius: 1em;
+    box-shadow: 0.5em 0.5em 1em #bbdefb;
+}
+
+.response_field:hover{
+    box-shadow: 1em 1em 1.5em #bbdefb;
+}
+
+.response-text-row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.response-header-text{
+    color: #64b5f6;
+    margin-left: 0.4em;
+    margin-top: 0.25em;
+    text-align: center;
+}
+
+.survey-name-field{
+    margin-left: 1em;
+    border: 1;
+    border-color: #bbdefb;
+    border-radius: 1em;
+    font-family: monospace;
+    font-weight: 500;
+    font-size:  1.5em;
+}
+
+.get-survey-button{
+    background-color: #3f51b5;
+    border-radius: 1em;
+    box-shadow: 1em 1em 1.5em #bbdefb;
+    border: 0;
+    padding: 0.5em;
+    width: 15em;
+    font-size: 0.8em;
+    color: #fff;
+    align-items: center;
+    cursor: pointer;
+}
+
+.get-survey-button:hover{
+    box-shadow: 0.5em 0.5em 1em #bbdefb;
+    background-color: #bbdefb;
+}
+
+.response-output{
+    margin-top: 1em;
+    margin-bottom: 1em;
+}

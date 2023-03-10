@@ -1,0 +1,10 @@
+.survey-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.survey-text{
+    font-size: 1.5em;
+    font-family: monospace;
+    font-weight: bold;
+}

@@ -1,0 +1,29 @@
+.survey-wrapper{
+    display: flex; 
+    flex-direction: column;
+    max-width: 50em;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-top: 0.5em;
+    padding: 1em;
+    border-radius: 1em;
+    box-shadow: 5px 5px 10px #bbdefb;
+}
+
+.survery-wrapper:hover{
+    box-shadow: 10px 10px 20px #bbdefb;
+}
+
+.submit-survey-button{
+    margin-top : 0.5em;
+    margin-left: 0.25em;
+    border-radius: 1em;
+    align-self: center;
+    background-color: #3f51b5;
+    box-shadow: 5px 5px 10px #bbdefb;
+}
+
+.submit-survey-button:hover{
+    box-shadow: 10px 10px 20px #bbdefb;
+}

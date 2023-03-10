@@ -1,0 +1,58 @@
+.main_text{
+    display:flex;
+    align-items:center;
+}
+
+.response-box{
+    max-width: 50em;
+    width: 65em;
+    height: auto;
+    margin: auto;
+    margin-top: 1em;
+    padding: 1em;
+    border-radius: 1em;
+    box-shadow: 0.5em 0.5em 1em #bbdefb;
+}
+
+.response-box:hover{
+    box-shadow: 1em 1em 1.5em #bbdefb;
+}
+
+.response-header-text{
+    margin-left: 2;
+    margin-top: 0.5; 
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 2em;
+    text-align: left;
+    color: #3f51b5;
+}
+
+.accepting-response-text{
+    color: #64b5f6;
+    margin-top: 0.4em;
+    margin-left: 18em;
+    margin-right: 1em;
+    font-size: 1em;
+}
+
+.slider{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content: center;
+}
+
+.slider-bar{
+    width: 2.5em;
+    height: 0.5em;
+    border-radius: 1em;
+}
+
+.response-label{
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 2em;
+    text-align: left;
+    color: #3f51b5;
+}

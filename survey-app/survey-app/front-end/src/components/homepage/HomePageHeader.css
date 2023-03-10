@@ -1,0 +1,150 @@
+.header{
+    position:sticky;
+    margin-bottom: 1em;
+    padding: 5px 0px;
+    display: flex;
+    height: 4em;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    color:#3f51b5;
+}
+
+.header_info{
+    display:flex;
+    align-items:center;
+}
+
+.menu-icon{
+    height:3em;
+    border-radius: 1em;
+    width: 4em; 
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}
+
+.menu-icon:hover{
+    opacity: 0.5;
+}
+
+.document-icon{
+    height: auto;
+    width: 1.3em; 
+    margin-left: auto;
+    margin-right: 1em;
+    cursor: pointer;
+}
+
+.info{
+    font-weight: bolder;
+    font-size: 2em;
+    width: 10em;
+    padding-left: 0.25em;
+    font-family: monospace;
+}
+
+
+.header_right{
+    display:flex;
+    align-items:center;
+}
+
+.header_search{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    /*background-color: #e3f2fd;*/
+    width: 45em;
+    height: 2em;
+    border-radius:2em;
+    
+}
+
+.search-bar{
+    border-color: #3f51b5;
+    border-radius: 1em;
+    width: 25em;
+    height: 3em;
+    font-size: 1.5em;
+    font-family: monospace;
+    font-weight: 500;
+}
+
+.search-wrapper{
+    margin-left: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #3f51b5;
+    height: 2.7em;
+    width: 10em;
+    padding: 0.5em;
+    border-radius: 1em;
+    border: 0;
+    box-shadow: 0em 0em 1em #bbdefb;
+    cursor: pointer;
+}
+
+.search-wrapper:hover{
+    box-shadow: 0em 0.5em 1.5em #bbdefb;
+    background-color: #bbdefb;
+}
+
+.search-icon{
+    height: 2em;
+    width: 2em; 
+    margin-right: 1em;
+    cursor: pointer;
+}
+.search-text{
+    font-size: 2em;
+    font-family: monospace;
+    font-weight: bold;
+    color: #fff;
+}
+
+.profile-icon{
+    height: 2em;
+    width: 2em; 
+    margin-right: 1em;
+    margin-left: 1em;
+    cursor: pointer;
+}
+
+.profile-icon:hover{
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.header-right-section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+.logout-button{
+    margin-left: 1em;
+    margin-right: 0.5em;
+    border-radius: 1em;
+    align-self: center;
+    background-color: #3f51b5;
+    height: 2 em;
+    width: 7em;
+    padding: 0.5em;
+    border-radius: 1em;
+    border: 0;
+    box-shadow: 0em 0em 1em #bbdefb;
+    font-size: 1.7em;
+    font-family: monospace;
+    font-weight: bolder;
+    color: #fff;
+    cursor: pointer;
+}
+
+.logout-button:hover{
+    box-shadow: 0em 0.5em 1.5em #bbdefb;
+    background-color: #bbdefb;
+}
