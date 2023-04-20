@@ -1,0 +1,132 @@
+.home-icon{
+    height: 1.5em;
+    width: 1.5em; 
+    margin-right: 1em;
+    margin-left: 1em;
+    cursor: pointer;
+}
+
+.home-icon:hover{
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.document-icon{
+    height: 1.5em;
+    width: 1.5em; 
+    margin-right: 1em;
+    margin-left: 1em;
+    cursor: pointer;
+}
+
+.document-icon:hover{
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.header-title-text{
+    font-weight: bolder;
+    font-size: 3em;
+    padding-left: 0.25em;
+    font-family: monospace;
+}
+
+.send-button{
+    border-radius: 1em;
+    border: 0;
+    width: 7em;
+    padding: 1em;
+    background-color: #3f51b5;
+    box-shadow: 0em 0em 1em #bbdefb;
+    font-size: 1.5em;
+    font-family: monospace;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+}
+
+.send-button:hover{
+    box-shadow: 0em 0.5em 1.5em #bbdefb;
+    background-color: #bbdefb;
+}
+
+.send-modal{
+    position:absolute;
+    display: flex;
+    flex-direction: column;
+    width: 20em;
+    top: 10%;
+    left: 75%;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-top: 1em;
+    padding: 0.25em;
+    border: 0;
+    border-radius: 1em;
+    box-shadow: 0em 0em 1em #bbdefb;
+    opacity: 1;
+}
+
+.text-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.modal-text-header{
+    font-weight: bolder;
+    font-size: 2em;
+    padding-left: 0.25em;
+    font-family: monospace;
+    color: #3f51b5;
+}
+
+.modal-input{
+    border-color: #3f51b5;
+    border-radius: 0.5em;
+    border: 0;
+    width: 15em;
+    height: 2em;
+    margin-bottom: 1em;
+    font-size: 1.5em;
+    font-family: monospace;
+    font-weight: 500;
+    box-shadow: 0em 0em 1em #bbdefb;
+
+}
+
+.modal-input:hover{
+    border-color: #bbdefb;
+    box-shadow: 0em 0em 1.5em #bbdefb;
+
+}
+
+.modal-button-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.modal-buttons{
+    border-radius: 1em;
+    border: 0;
+    width: 10em;
+    padding: 1em;
+    background-color: #3f51b5;
+    box-shadow: 0em 0em 1em #bbdefb;
+    font-size: 1em;
+    font-family: monospace;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+}
+
+.modal-buttons:hover{
+    background-color: #bbdefb;
+    box-shadow: 0em 0em 1.5em #bbdefb;
+
+}
+

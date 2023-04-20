@@ -1,25 +1,17 @@
 import axios from 'axios';
 
-export function printEach(message)
+export default async function GenerateSurvey(questions, surveyName, userName)
 {
-    console.log(message.question_field);
-}
-
-export async function questionFieldDatabase(survey)
-{
-    let questionFieldMess;
-    
-    const message =
+    const survey = 
     {
-        operation: 'CREATE',
-        text: "text",
-
+        username: userName,
+        surveyName: surveyName,
+        questions: questions
     }
-    console.log("attempt to send message")
+
+    console.log("Attempting to create survey")
+    console.log(survey);
     await axios
     .post("http://localhost:8000/createSurvey", survey)
-    .then((data) => questionFieldMess = data)
         .catch(err => console.error(err));
-
-    console.log(questionFieldMess);
 }

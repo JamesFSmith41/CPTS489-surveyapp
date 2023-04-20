@@ -50,10 +50,9 @@ export default function NewField({id, question_title, question_type, option_list
 
                     <div className = "delete-question"> 
                         <button className="delete-question-button"
-                        onClick = {()=>handleDeleteQuestion(id)}
-                        >
-                                    Delete
-                            </button>
+                        onClick = {()=>handleDeleteQuestion(id)}>
+                            Delete
+                        </button>
                     </div>
                 </div>
             </div>

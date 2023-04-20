@@ -15,8 +15,8 @@
     box-shadow: 10px 10px 20px #bbdefb;
 }
 
-.submit-survey-button{
-    margin-top : 0.5em;
+.survey-button{
+    margin-top : 2em;
     margin-left: 0.25em;
     border-radius: 1em;
     align-self: center;
@@ -26,10 +26,4 @@
 
 .submit-survey-button:hover{
     box-shadow: 10px 10px 20px #bbdefb;
-}
-
-.survey-question-section{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }

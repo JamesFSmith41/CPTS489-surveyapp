@@ -3,12 +3,13 @@ import {useNavigate} from 'react-router-dom'
 import {Box,Typography, TextField,Button} from "@mui/material";
 import LoginRoundedIcon from '@mui/icons-material/LoginRounded';
 import HowToRegRoundedIcon from '@mui/icons-material/HowToRegRounded';
+import axios from 'axios';
 import { hashSHA256 } from "../front-end/src/components/Crypto/Hashing";
 
 const Login = () =>
 {
     let navigate = useNavigate();
-    const [isSignUp, setIsSignUp] = useState(false);
+    const [isSignUp, setIsSignUp] =useState(false);
     const [input, setInput] = useState({
         name :"", 
         email:"",
@@ -39,6 +40,9 @@ const Login = () =>
 
         }
         console.log(user);
+        await axios
+        .post("http://localhost:8000/createUser", user)
+          .catch(err => console.error(err));
         navigate("/homepage");
     }
 

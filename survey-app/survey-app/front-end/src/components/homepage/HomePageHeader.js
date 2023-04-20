@@ -14,7 +14,7 @@ function Header()
                 />
                 <img src={require('../../images/document-icon.png')} className="document-icon"/>
                 <text className="info">
-                    CPTS 489 SURVEY TOOL
+                    AEGIR SURVEYS
                 </text>
             </div>
             <div className="header_search">

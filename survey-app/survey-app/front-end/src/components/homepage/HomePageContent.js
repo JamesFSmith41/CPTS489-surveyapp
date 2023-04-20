@@ -1,8 +1,9 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {useNavigate} from 'react-router-dom'
 import SurveyBar from "./SurveyBar.js"
 import PendingSurveys from "./PendingSurveys.js"
 import "./HomePageContent.css"
+import {Link} from 'react-router-dom';
 
 export default function MidBody(){
     let navigate = useNavigate();
@@ -11,6 +12,20 @@ export default function MidBody(){
     
     const [isNotPending, setIsNotPending] =useState(true);
 
+    const [surveyNames, setSurveyNames] = useState([]);
+    
+    const [surveys, setSurveys] = useState();
+
+    let surveyList = []
+
+    useEffect( () => {
+        surveyList.push("demo");
+        setSurveyNames(surveyList);
+        console.log(surveyNames)
+        
+      }, [])
+
+    
     const startForm = (e) =>{
         setNewForm(!newForm)
         navigate("/creator/question")
@@ -32,10 +47,15 @@ export default function MidBody(){
                         {isNotPending ? "ANSWER PENDING SURVEYS" : "VIEW ALL SURVEYS"}
                         <img src={require('../../images/survey-icon.png')} className="survey-icon"/>
                 </button>
+                <div className="testArr">
+                    {surveyNames ? <p> {surveyNames} ARR</p> : <p>Loading...</p>}
+                </div>
             </div>
             <div className = "bar">
                 {isNotPending && <SurveyBar/>}
-                <PendingSurveys/>
+                <PendingSurveys
+                    name="demo"
+                />
             </div>
         </div>
     )

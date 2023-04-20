@@ -37,7 +37,18 @@ const Login = () =>
             password: hash,
         }
         console.log(user);
-        navigate("/homepage");
+        const result = await axios
+            .post("http://localhost:8000/login", user)
+                .catch(err => console.error(err));
+        if (result.request.responseText === "true")
+        {
+            navigate("/homepage");
+        }
+        else
+        {
+            console.log("Invalid Login");
+            console.log(result.request.responseText);
+        }
     }
 
     async function createUser()
@@ -51,7 +62,10 @@ const Login = () =>
 
         }
         console.log(hash);
-        navigate("/homepage");
+        await axios
+        .post("http://localhost:8000/createUser", user)
+        .then(navigate("/homepage"))
+            .catch(err => console.error(err));
     }
 
     return (

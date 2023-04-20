@@ -110,6 +110,8 @@ const AddQuestionField = ({handleAddQuestion}) => {
       videoRef.current?.load();
     }, [video]);
 
+
+
     return(
         <div className = "field">
                 <div className="question-field-box">
@@ -155,41 +157,39 @@ const AddQuestionField = ({handleAddQuestion}) => {
                             placeholder = "New Question"
                             onChange = {handleChange}
                         />
+                            <div className = "dropdown">
+                                <select value = {type} onChange = {handleDropChange} selected="selected">
+                                    <option>radio</option>
+                                    <option>checkbox</option>
+                                    <option>textbox</option>
+                                    <option>dropdown</option>
+                                </select>
 
-                        <div className = "dropdown">
-                        <select value = {type} onChange = {handleDropChange} selected="selected">
-                            <option>radio</option>
-                            <option>checkbox</option>
-                            <option>textbox</option>
-                            <option>dropdown</option>
-                        </select>
-
-                        {type === "radio" && 
-                        <AddRadioQuestionList
-                        options = {options}
-                        handleAddOption ={addOption}
-                        handleDeleteOption = {deleteOption}
-                        />}
+                                {type === "radio" && 
+                                <AddRadioQuestionList
+                                options = {options}
+                                handleAddOption ={addOption}
+                                handleDeleteOption = {deleteOption}
+                                />}
 
 
-                        {type === "checkbox" && 
-                        <AddCheckQuestionList
-                        options = {options}
-                        handleAddOption ={addOption}
-                        handleDeleteOption = {deleteOption}
-                        />}
-                        
-                        {type === "textbox" && <TextQuestion/>}
+                                {type === "checkbox" && 
+                                <AddCheckQuestionList
+                                options = {options}
+                                handleAddOption ={addOption}
+                                handleDeleteOption = {deleteOption}
+                                />}
+                                
+                                {type === "textbox" && <TextQuestion/>}
 
-                        {type === "dropdown" && 
-                        <AddDropdownQuestionList
-                        options = {options}
-                        handleAddOption ={addOption}
-                        handleDeleteOption = {deleteOption}
-                        />}
+                                {type === "dropdown" && 
+                                <AddDropdownQuestionList
+                                options = {options}
+                                handleAddOption ={addOption}
+                                handleDeleteOption = {deleteOption}
+                                />}
+                            </div>
                         </div>
-                        </div>
-
                     </div>
                 </div>        
                 <div className = "survey-question-button-row">
@@ -198,12 +198,6 @@ const AddQuestionField = ({handleAddQuestion}) => {
                         onClick = {handleAddClick}>
                                         Add Question
                                 </button>
-
-                                <button className="survey-button"
-                                    type = "submit"
-                                    variant = "contained">
-                                    Submit Survey
-                                </button> 
                     </div>
                 </div>
             </div>

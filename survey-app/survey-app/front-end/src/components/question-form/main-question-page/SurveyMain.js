@@ -5,6 +5,7 @@ import NewField from '../survey-functionality/SurveyQuestionSection/SurveyQuesti
 import './SurveyMain.css';
 import { nanoid } from 'nanoid'
 import QuestionFieldList from '../survey-functionality/SurveyQuestionSection/QuestionFieldList.js';
+import GenerateSurvey from '../survey-functionality/SurveyQuestionSection/SurveyGenerator.js';
 
 function SurveyQuestionMain({survey_title}) {
   const [surveyName, setSurveyName] = useState();
@@ -57,8 +58,9 @@ function SurveyQuestionMain({survey_title}) {
       required: false
   }
     ]);
+    
 
-    const onClick = () => setShowSurvey(true);
+    const createSurvey = () => setShowSurvey(true);
 
     const addQuestion = (title,type,list,image,video,required) => {
       const newQuestion = {
@@ -81,8 +83,15 @@ function SurveyQuestionMain({survey_title}) {
       setQuestions(newQuestions);
     }
 
+    const CreateNewSurvey  = () =>
+    {
+      console.log("Questions: " + questions);
+      //console.log(newQuestions);
+      console.log("SurveyName: " + surveyName);
+      GenerateSurvey(questions, surveyName, "testUser")
+    }
     return (
-      <div>
+      <>
         <QuestionHeader/>
         <QuestionTab/>
         <div classname = "form">
@@ -95,23 +104,32 @@ function SurveyQuestionMain({survey_title}) {
                 <button className="survey-button"
                     type = "submit"
                     variant = "contained"
-                    onClick={onClick}
+                    onClick={createSurvey}
                     >
                       Create New Survey
                 </button>
                 <div>
                   { showSurvey ? 
-                  <QuestionFieldList 
-                  questions = {questions} 
-                  handleAddQuestion = {addQuestion}
-                  handleDeleteQuestion = {deleteQuestion}
-                  />
+                  <div className="survey-question-section">
+                   <QuestionFieldList 
+                    questions = {questions} 
+                    handleAddQuestion = {addQuestion}
+                    handleDeleteQuestion = {deleteQuestion}
+                    />
+                    <button 
+                      className="survey-button"
+                      type = "submit"
+                      variant = "contained"
+                      onClick={CreateNewSurvey}>
+                      Submit Survey
+                    </button> 
+                  </div>
                     : null }     
                 </div>
               </div>
             </div>
         </div>
-      </div>
+      </>
     );
   }
 export default SurveyQuestionMain;

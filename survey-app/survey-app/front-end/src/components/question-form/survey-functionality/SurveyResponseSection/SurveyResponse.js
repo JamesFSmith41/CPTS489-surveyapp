@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import axios from 'axios';
 import * as content from './SurveyContent.js';
+import  PullSurvey  from '../../../homepage/PullSurvey.js';
 import './SurveyResponseField.css'
 import {
     Chart as ChartJS,
@@ -9,7 +10,7 @@ import {
     Legend
   } from 'chart.js';
   
-  import {Pie} from 'react-chartjs-2';
+ //import {Pie} from 'react-chartjs-2';
   
   ChartJS.register(
     ArcElement, Tooltip, Legend
@@ -54,25 +55,15 @@ export default function NewField(surveyName){
     const [surveyOutput, setSurveyOutput] = useState("");
     const [name, setSurveyName] = useState("");
 
-    async function getSurveyContent(name)
+    async function getSurveyContent()
     {    
-        const message =
-        {
-            operation: 'GET',
-            name: name,
-        }
-
-        console.log(message);
-        await axios
-        .post("http://localhost:8000/getSurvey", message)
-        .then(response => 
-            {
-                setSurveyOutput(content.SurveyContent(response.data[0].surveyName, response.data[0].userName, "test"))
-            })
-            .catch(err => console.error(err));
-    
-        //console.log(surveyContent);
-       // setSurveyOutput(surveyContent);
+        console.log(name);
+        await PullSurvey(name)
+            .then(response => 
+                {
+                    console.log(response);
+                    //setSurveyOutput(content.SurveyContent(response.data[0].surveyName, response.data[0].userName, response.data[0].questions))
+                })
     }
 
     function printArray(index)
@@ -98,6 +89,7 @@ export default function NewField(surveyName){
     {
         console.log(message.question_field);
     }
+
     async function questionFieldDatabase(survey)
     {
         let questionFieldMess;
@@ -136,7 +128,7 @@ export default function NewField(surveyName){
                     onChange={e => setSurveyName(e.target.value)}
                     />
                     <button className="get-survey-button"
-                     onClick = {()=> {getSurveyContent(name)}}
+                     onClick = {()=> {getSurveyContent()}}
                      >
                         Find Survey
                     </button>
@@ -146,11 +138,12 @@ export default function NewField(surveyName){
                 </div>
             </div>        
             <div className = "temp-pie">
-                    <Pie
+                    {/*<Pie
                     data = {data}
                     options = {options}>
                       
                     </Pie>
+                    */}
 
                   </div>
 
