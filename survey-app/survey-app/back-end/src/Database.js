@@ -24,7 +24,7 @@ export async function executeDatabasepOperationsSurvey(operation, survey)
     let client;
     try {
         client = await connecToCluster(uri);
-        const db = client.db('ProjectAegir');
+        const db = client.db('CPTS489-WEBDEV');
         const collection = db.collection('survey');
         //await createSurvey(collection, text);
         //console.log(survey.surveyName);
@@ -145,7 +145,7 @@ export async function executeDatabasepOperationsUser(operation, username, passwo
     let client;
     try {
         client = await connecToCluster(uri);
-        const db = client.db('ProjectAegir');
+        const db = client.db('CPTS489-WEBDEV');
         const collection = db.collection('users');
         //await createUser(collection, username, password, email);
         console.log(operation);
@@ -229,24 +229,24 @@ async function findUserByEmail(collection, email)
 
 async function loginCheck(collection, email, password)
 {   
-    const result = await collection.find({ 
-        email,
-        password
-     })
+    // console.log(password)
+    // console.log(email)
 
-     if (result.length != 0)
-        {
-            console.log("User Found");
-            return true;
-        }
-        else
-        {
-            console.log("User Not Found");
-            return false;
-        }
+    let result = await collection.findOne({ email: email, password: password})
 
-
+    console.log(result)
+    if (result != null)
+    {
+        console.log("User Found");
+        return true;
+    }
+    else
+    {
+        console.log("User Not Found");
+        return false;
+    }
 }
+
 async function findUserByNameAndPassword(collection, name, password)
 {
     return collection.find({ 

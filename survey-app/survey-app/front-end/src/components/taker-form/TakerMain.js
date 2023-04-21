@@ -33,7 +33,7 @@ function TakerMain() {
             {survey.surveyName}
           </p>
           {<TakerQuestionList
-            questions = {survey.questions} 
+            questions = {survey.surveyQuestions} 
             handleAddQuestion = {addQuestion}
             handleDeleteQuestion = {deleteQuestion}/>}
           {/* { location.state.questions ? 

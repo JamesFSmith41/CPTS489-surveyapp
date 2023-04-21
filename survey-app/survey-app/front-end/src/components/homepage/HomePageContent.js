@@ -47,9 +47,7 @@ export default function MidBody(){
                         {isNotPending ? "ANSWER PENDING SURVEYS" : "VIEW ALL SURVEYS"}
                         <img src={require('../../images/survey-icon.png')} className="survey-icon"/>
                 </button>
-                <div className="testArr">
-                    {surveyNames ? <p> {surveyNames} ARR</p> : <p>Loading...</p>}
-                </div>
+                
             </div>
             <div className = "bar">
                 {isNotPending && <SurveyBar/>}

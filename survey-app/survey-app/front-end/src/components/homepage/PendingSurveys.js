@@ -17,36 +17,36 @@ export default function PendingBar(name){
             state:{
                 id:1,
                 name:'test', 
-                survey: data,
+                survey: survey,
                 testvar: "testvar"
             }})
     }
 
-    // async function LoadSurvey()
-    // {
-    //     let surveyInfo =
-    //     {
-    //         surveyName: name
-    //     }
+    async function LoadSurvey()
+    {
+        let surveyInfo =
+        {
+            surveyName: name
+        }
         
-    //     console.log(surveyInfo);
-    //     await axios
-    //     .post("http://localhost:8000/getSurvey", surveyInfo)
-    //         .then(response =>   {
-    //             setSurvey(response.data);
-    //             console.log(response.data)
-    //             });
-    // }
+        console.log(surveyInfo);
+        await axios
+        .post("http://localhost:8000/getSurvey", surveyInfo)
+            .then(response =>   {
+                setSurvey(response.data);
+                console.log(response.data)
+                });
+    }
    
-    // useEffect(() => {
-    //     console.log("useEffect ran");
-    //     console.log(name);
-    //     LoadSurvey();
-    // },  [] // <-- empty dependency array
-    // ); 
+    useEffect(() => {
+        console.log("useEffect ran");
+        console.log(name);
+        LoadSurvey();
+    },  [] // <-- empty dependency array
+    ); 
     
 
-    //const [survey, setSurvey] = useState();
+    const [survey, setSurvey] = useState();
     const [loading, data, error] = useFetchSurvey(name, []);
 
     let navigate = useNavigate();
@@ -62,11 +62,11 @@ export default function PendingBar(name){
     return (
         <div className = "pending-survey-wrapper">
             <text className="survey-title-text">
-                {loading ? "Loading Survey" : data}
+                {loading ? "Loading Survey" : survey.surveyName}
             </text>
             
             <text className = "survey-date-text">
-            {loading ? "Loading Survey" : data}
+            {loading ? "Loading Survey" : survey.created}
             </text>
             <button  class="answer-button"
                 onClick = {NavigateTaker}>
