@@ -14,7 +14,7 @@ function Header()
                 />
                 <img src={require('../../images/document-icon.png')} className="document-icon"/>
                 <text className="info">
-                    AEGIR SURVEYS
+                    SURVEY APP
                 </text>
             </div>
             <div className="header_search">
@@ -29,7 +29,7 @@ function Header()
             </div>
             <div className="header-right-section">
                 <text>
-                    Notifactions placeholder
+                    Notifactions
                 </text>
                 <img src={require('../../images/profile-icon.png')} className="profile-icon"/>
                 <button className="logout-button"
