@@ -18,12 +18,12 @@ export default function MidBody(){
 
     let surveyList = []
 
-    useEffect( () => {
-        surveyList.push("demo");
-        setSurveyNames(surveyList);
-        console.log(surveyNames)
+    // useEffect( () => {
+    //     surveyList.push("demo");
+    //     setSurveyNames(surveyList);
+    //     console.log(surveyNames)
         
-      }, [])
+    //   }, [])
 
     
     const startForm = (e) =>{
@@ -52,7 +52,6 @@ export default function MidBody(){
             <div className = "bar">
                 {isNotPending && <SurveyBar/>}
                 <PendingSurveys
-                    name="demo"
                 />
             </div>
         </div>

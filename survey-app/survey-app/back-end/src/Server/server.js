@@ -34,6 +34,16 @@ app.post('/getSurvey', async (req, res) => {
           })
 });
 
+app.post('/getLastestSurvey', async (req, res) => {
+    await database.executeDatabasepOperationsSurvey("LATEST", null)
+        .then(response =>   {
+            res.send(response)
+        }).catch(err => {
+            console.log(err)
+            res.send({ err }) // <= send error
+          })
+});
+
 app.post('/createUser', (req, res) => {
     let username = req.body.username
     let password = req.body.password

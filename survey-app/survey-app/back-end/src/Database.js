@@ -20,15 +20,11 @@ export async function executeDatabasepOperationsSurvey(operation, survey)
 {
     config();
     const uri = process.env.DB_URI;
-    console.log(uri);
     let client;
     try {
         client = await connecToCluster(uri);
         const db = client.db('CPTS489-WEBDEV');
         const collection = db.collection('survey');
-        //await createSurvey(collection, text);
-        //console.log(survey.surveyName);
-        //return await collection.findOne({survey: {surveyName: survey}}).toArray();
 
         switch (operation)
         {
@@ -60,7 +56,9 @@ export async function executeDatabasepOperationsSurvey(operation, survey)
                     console.log(status);
                     return status;
                 }
-
+            case 'LATEST':
+                let surveyResult = await getLastestSurvey(collection);
+                return surveyResult;
         }
     } finally {
         await client.close();
@@ -112,10 +110,18 @@ async function surveyExists(collection, survey)
 async function getSurvey(collection, name)
 {
     console.log("database survey name - " + name.name)
-    const result = await collection.findOne({surveyName: name.name});
-    //console.log("Survey Result");
+    const result = await collection.findOne();
     console.log(result);
     return result;
+}
+
+async function getLastestSurvey(collection)
+{
+    const result = await collection.findOne({}, {sort:{$natural:-1}})
+
+    //const result = await collection.findOne();
+    console.log(result);
+    return result; 
 }
 
 async function findSurvey(collection, surveyId)
