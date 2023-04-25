@@ -2,6 +2,7 @@ import TakerQuestionList from "./TakerQuestionList";
 import SurveyMain from "../question-form/main-question-page/SurveyMain";
 import TakerHeader from './TakerHeader.js'
 import { useContext } from "react";
+import {useNavigate} from 'react-router-dom'
 import { nanoid } from 'nanoid'
 import React, {useState} from 'react'
 import {useLocation} from 'react-router-dom'
@@ -11,6 +12,7 @@ import PullSurvey from "../homepage/PullSurvey";
 
 function TakerMain() {
 
+    let navigate = useNavigate();
     const location = useLocation();
     const [questions2] = useState([]);
     //const questions = useContext(SurveyQuestionMain); 
@@ -25,6 +27,10 @@ function TakerMain() {
 
       }
 
+      const handleClick = () => {
+        handleSave();
+        navigate("/homepage");
+      }
     return (
       <>
         <TakerHeader/>
@@ -50,9 +56,11 @@ function TakerMain() {
             Sorry nothing
             </div>
           } */}
-          <button className="survey-button" type="submit" onClick={handleSave}>
-            Save Responses
-          </button>
+
+            <button className="survey-button" type="submit" onClick={handleClick}>
+              Save Responses
+            </button>
+
         </div>
       </>
     );
