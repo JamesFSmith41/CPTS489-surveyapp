@@ -1,13 +1,14 @@
 import React, {useState} from 'react'
 import QuestionHeader from './SurveyHeader.js'
 import QuestionTab from '../survey-functionality/SurveyQuestionSection/QuestionTab.js'
-import NewField from '../survey-functionality/SurveyQuestionSection/SurveyQuestionFields.js'
 import './SurveyMain.css';
 import { nanoid } from 'nanoid'
+import {useNavigate} from 'react-router-dom'
 import QuestionFieldList from '../survey-functionality/SurveyQuestionSection/QuestionFieldList.js';
 import GenerateSurvey from '../survey-functionality/SurveyQuestionSection/SurveyGenerator.js';
 
 function SurveyQuestionMain({survey_title}) {
+  let navigate = useNavigate();
   const [surveyName, setSurveyName] = useState();
   const [showSurvey, setShowSurvey] = useState(false);
 
@@ -89,6 +90,7 @@ function SurveyQuestionMain({survey_title}) {
       //console.log(newQuestions);
       console.log("SurveyName: " + surveyName);
       GenerateSurvey(questions, surveyName, "testUser")
+      navigate("/homepage");
     }
     return (
       <>
