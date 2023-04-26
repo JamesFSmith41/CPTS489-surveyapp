@@ -1,35 +1,34 @@
-import React, {useState} from "react";
-import {useNavigate} from 'react-router-dom'
+import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import { hashSHA256 } from "../Crypto/Hashing";
 import './Login.css'
-const Login = () =>
-{
+
+const Login = () => {
     let navigate = useNavigate();
-    const [isSignUp, setIsSignUp] =useState(false);
+    const [isSignUp, setIsSignUp] = useState(false);
     const [input, setInput] = useState({
-        name :"", 
-        email:"",
-        password:""
+        name: "",
+        email: "",
+        password: ""
     });
 
-    const handleChange = (e)=> {
-        setInput((prevState)=>({
+    const handleChange = (e) => {
+        setInput((prevState) => ({
             ...prevState,
-            [e.target.name] : e.target.value
+            [e.target.name]: e.target.value
         }))
     }
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(input);
     }
-    const resetState = (e) =>{
+    const resetState = (e) => {
         setIsSignUp(!isSignUp)
-        setInput({name:"",email:"",password:""})
+        setInput({ name: "", email: "", password: "" })
     }
 
-    async function loginCheck()
-    {
+    async function loginCheck() {
         let hash = await hashSHA256(input.password);
         const user = {
             operation: 'LOGIN',
@@ -39,20 +38,17 @@ const Login = () =>
         console.log(user);
         const result = await axios
             .post("http://localhost:8000/login", user)
-                .catch(err => console.error(err));
-        if (result.request.responseText === "true")
-        {
+            .catch(err => console.error(err));
+        if (result.request.responseText === "true") {
             navigate("/homepage");
         }
-        else
-        {
+        else {
             console.log("Invalid Login");
             console.log(result.request.responseText);
         }
     }
 
-    async function createUser()
-    { 
+    async function createUser() {
         let hash = await hashSHA256(input.password);
         const user = {
             operation: 'CREATE',
@@ -63,51 +59,53 @@ const Login = () =>
         }
         console.log(hash);
         await axios
-        .post("http://localhost:8000/createUser", user)
-        .then(navigate("/homepage"))
+            .post("http://localhost:8000/createUser", user)
+            .then(navigate("/homepage"))
             .catch(err => console.error(err));
     }
 
     return (
         <div>
             <form className="login-form"
-                onSubmit = {handleSubmit}>
+                onSubmit={handleSubmit}>
                 <div className="login-wrapper">
                     <text className="login-header-text">
-                        {isSignUp ? "SIGN UP" : "LOGIN" }
-                        </text>
+                        {isSignUp ? "SIGN UP" : "LOGIN"}
+                    </text>
 
-                    { isSignUp && 
-                    <input className="input-field"
-                        onChange = {handleChange}
-                        name = "name" 
-                        value = {input.name}
-                        placeholder = "Name"/>
+                    {isSignUp &&
+                        <input className="input-field"
+                            onChange={handleChange}
+                            name="name"
+                            value={input.name}
+                            placeholder="Name"
+                            required />
                     }
+
                     <input className="input-field"
-                        onChange = {handleChange}
-                        name = "email" 
+                        onChange={handleChange}
+                        name="email"
                         type="email"
-                        value = {input.email}
-                        placeholder = "Email"/>
+                        value={input.email}
+                        placeholder="Email"
+                        required />
+
                     <input className="input-field"
-                        onChange = {handleChange}
-                        name = "password"
-                        value = {input.password}
-                        type ="password" 
-                        placeholder = "Password"/>
-                        
+                        onChange={handleChange}
+                        name="password"
+                        value={input.password}
+                        type="password"
+                        placeholder="Password"
+                        required />
+
                     <button className="login-buttons"
-                        onClick = {()=> isSignUp ? createUser() : loginCheck()}
-                    //endIcon = {isSignUp ? <HowToRegRoundedIcon /> : <LoginRoundedIcon />}
-                    >
+                        onClick={() => isSignUp ? createUser() : loginCheck()}>
                         {isSignUp ? "Sign Up" : "Login"}
                     </button>
 
                     <button className="login-buttons"
-                        //endIcon = {isSignUp ? <LoginRoundedIcon /> : <HowToRegRoundedIcon />}
-                        onClick = {resetState}>
-                            Change To {isSignUp ? "Login" : "Sign Up"}
+                        onClick={resetState}>
+                        Change To {isSignUp ? "Login" : "Sign Up"}
                     </button>
                 </div>
             </form>
